@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "HOST_IP=$(hostname -I | awk '{print $1}') next dev",
+    "build": "HOST_IP=$(hostname -I | awk '{print $1}') next build",
+    "start": "HOST_IP=$(hostname -I | awk '{print $1}') next start",
+    "start:json-server": "json-server server.json --port 3333 --watch --delay 2000 --host $(hostname -I | awk '{print $1}')"
   },
   "dependencies": {
     "next": "10.2.3",
